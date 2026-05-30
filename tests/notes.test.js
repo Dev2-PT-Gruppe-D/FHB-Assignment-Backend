@@ -28,9 +28,10 @@ describe('Integration Tests: Notes REST API', () => {
   })
 
   test('GET /api/notes/:id should return 404 for non-existent ID', async () => {
-    await request(app)
+    const response = await request(app)
       .get('/api/notes/999')
       .expect(404)
+    expect(response.status).toBe(404)
   })
 
   test('POST /api/notes should create a new note with valid content', async () => {
@@ -72,8 +73,9 @@ describe('Integration Tests: Notes REST API', () => {
       .delete('/api/notes/2')
       .expect(204)
 
-    await request(app)
+    const response = await request(app)
       .get('/api/notes/2')
       .expect(404)
+    expect(response.status).toBe(404)
   })
 })
