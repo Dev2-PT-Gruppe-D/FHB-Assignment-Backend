@@ -1,0 +1,28 @@
+# Ignore dependencies
+node_modules
+npm-debug.log
+
+# Ignore local configs
+.env
+.env.*
+
+# Ignore git folder and CI / IDE artifacts
+.git
+.gitignore
+.github
+.vscode
+.idea
+.editorconfig
+
+# Ignore tests, test coverage reports and instruction docs
+tests
+*.test.js
+coverage
+.eslintcache
+
+# Ignore linter configs
+eslint.config.js
+
+# Ignore documentation
+*.md
+LICENSE
