@@ -17,7 +17,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.3"
+    "express": "^4.21.2"
+  },
+  "overrides": {
+    "path-to-regexp": "0.1.13"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

@@ -17,6 +17,10 @@ COPY --from=builder /app/node_modules ./node_modules
 
 COPY app.js index.js utils.js package.json ./
 
+# Drop the npm CLI bundled in the base image - it is not used at runtime and its
+# bundled deps (tar, minimatch, glob, cross-spawn) carry HIGH CVEs the Trivy gate flags
+RUN rm -rf /usr/local/lib/node_modules/npm /usr/local/bin/npm /usr/local/bin/npx
+
 RUN chown -R node:node /app
 
 EXPOSE 3001
