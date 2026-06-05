@@ -8,6 +8,11 @@ FROM node:20-alpine AS runner
 ENV NODE_ENV=production
 WORKDIR /app
 
+# OCI provenance metadata - GHCR links the image to source/license automatically
+LABEL org.opencontainers.image.source="https://github.com/Dev2-PT-Gruppe-D/FHB-Assignment-Backend"
+LABEL org.opencontainers.image.description="FHB DevOps Assignment - Notes Backend"
+LABEL org.opencontainers.image.licenses="ISC"
+
 COPY --from=builder /app/node_modules ./node_modules
 
 COPY app.js index.js utils.js package.json ./
